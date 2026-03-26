@@ -1,11 +1,11 @@
 #[macro_export]
 macro_rules! print {
-	($($arg:tt)*) => {{
+	($($argument:tt)*) => {{
 		unsafe extern "C" {
 			fn write_text(text: *const core::ffi::c_char, length: u32, new_line: u8);
 		}
 
-		let text: alloc::string::String = alloc::format!($($arg)*);
+		let text: alloc::string::String = alloc::format!($($argument)*);
 
 		unsafe {
 			write_text(text.as_ptr(), text.len() as u32, 0);
@@ -24,12 +24,12 @@ macro_rules! println {
 			write_text(core::ptr::null_mut(), 0, 1);
 		}
 	}};
-	($($arg:tt)*) => {{
+	($($argument:tt)*) => {{
 		unsafe extern "C" {
 			fn write_text(text: *const core::ffi::c_char, length: u32, new_line: u8);
 		}
 
-		let text: alloc::string::String = alloc::format!($($arg)*);
+		let text: alloc::string::String = alloc::format!($($argument)*);
 
 		unsafe {
 			write_text(text.as_ptr(), text.len() as u32, 1);
