@@ -38,7 +38,7 @@ endif()
 # =========================================================================================
 
 set(PICO_TOOLCHAIN_PATH $ENV{ARM_TOOLCHAIN_PATH})
-include(pico_sdk_import.cmake)
+include(${CMAKE_SOURCE_DIR}/pico_sdk_import.cmake)
 project(${PROJECT_NAME} C CXX ASM)
 pico_sdk_init()
 include(${CMAKE_SOURCE_DIR}/dependencies/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2350_ARM_NTZ/FreeRTOS_Kernel_import.cmake)
@@ -46,7 +46,7 @@ set(RUST_LIBRARY ${CMAKE_SOURCE_DIR}/target/thumbv8m.main-none-eabihf/release/li
 add_custom_command(
 	OUTPUT ${RUST_LIBRARY}
 	COMMAND cargo build --release
-	DEPENDS ${PROJECT_RUST_SOURCE_FILES}
+	DEPENDS ${CMAKE_SOURCE_DIR}/.cargo/config.toml ${CMAKE_SOURCE_DIR}/Cargo.toml ${CMAKE_SOURCE_DIR}/rust-toolchain.toml ${PROJECT_RUST_SOURCE_FILES}
 	WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 	COMMENT "Compiling Rust sources..."
 )
