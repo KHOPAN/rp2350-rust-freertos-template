@@ -1,0 +1,8 @@
+[build]
+target = "thumbv8m.main-none-eabihf"
+
+[target.thumbv8m.main-none-eabihf]
+rustflags = [
+	"-C", "linker-plugin-lto",
+	"-C", "target-cpu=cortex-m33"
+]

@@ -1,0 +1,17 @@
+[lib]
+bench = false
+crate-type = ["staticlib"]
+path = "src/rust/main.rs"
+test = false
+
+[package]
+edition = "2024"
+name = "rp2350_rust_freertos_template"
+version = "1.0.0"
+
+[profile.release]
+codegen-units = 1
+debug = false
+lto = "thin"
+opt-level = 3
+panic = "abort"
