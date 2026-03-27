@@ -1,6 +1,3 @@
-# Overview
-A FreeRTOS project template in C for RP2350 that integrates with Rust, with cross-language Link Time Optimization.
-
 # Things to change
 - Project names: line 41 of `CMakeLists.txt` and line 9 of `Cargo.toml`. (They must match)
 
