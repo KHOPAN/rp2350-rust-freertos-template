@@ -17,7 +17,7 @@ void assertion_failed(const char* const file_name, const int line_number);
 #define configMAX_PRIORITIES						32
 #define configMAX_SYSCALL_INTERRUPT_PRIORITY		16
 #define configMESSAGE_BUFFER_LENGTH_TYPE			size_t
-#define configMINIMAL_STACK_SIZE					((configSTACK_DEPTH_TYPE) 512) 
+#define configMINIMAL_STACK_SIZE					((configSTACK_DEPTH_TYPE) 512)
 #define configNUM_CORES								2
 #define configNUM_THREAD_LOCAL_STORAGE_POINTERS		5
 #define configNUMBER_OF_CORES						configNUM_CORES
